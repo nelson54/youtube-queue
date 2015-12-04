@@ -1,0 +1,5 @@
+a(href='/rooms/new/') Add new room
+
+each room in rooms
+    p
+        a(href='/rooms/' + room.getId())= room.getId()

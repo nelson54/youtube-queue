@@ -1,0 +1,9 @@
+form(method="post")
+    p
+        input(type="text", name="link", placeholder="www.youtube.com/1234")
+        button(type="submit") +
+if room.getLinks()
+    each link in room.getLinks()
+        p= link.link + ': ' + link.votes
+else
+    p No links found
