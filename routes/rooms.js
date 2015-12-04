@@ -22,7 +22,7 @@ router.get('/add', function(req, res) {
 router.get('/:id/', function(req, res) {
     Room.findOne(req.params.id)
         .then(function(room){
-            res.render('room', {action: '/rooms'+req.path+'/links', room: room})
+            res.render('room', {path: '/rooms'+req.path, room: room})
         });
 });
 
@@ -41,6 +41,19 @@ router.post('/:id/links', function(req, res) {
             room.save(
                 function(){
                     res.redirect('/rooms/' + req.params.id);
+                }, function(){
+                    res.redirect('/rooms/' + req.params.id);
+                });
+        });
+});
+
+router.post('/:id/pop', function(req, res) {
+    Room.findOne(req.params.id)
+        .then(function(room){
+            room.addLink(req.param('link'));
+            room.save(
+                function(){
+                    res.send('/rooms/');
                 }, function(){
                     res.redirect('/rooms/' + req.params.id);
                 });
