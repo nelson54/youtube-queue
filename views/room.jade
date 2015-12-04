@@ -3,8 +3,8 @@ form(method="post", action=path+'/links')
         input(type="text", name="link", placeholder="www.youtube.com/1234")
         button(type="submit") +
 if room.getLinks()
-    each link, i in room.getLinks()
+    each link in room.getLinks()
         p= link.link + ': ' + link.votes
-            a(href=path+'/links/'+i+'/delete')
+            a(href=path+'/links/'+link.id+'/delete') X
 else
     p No links found

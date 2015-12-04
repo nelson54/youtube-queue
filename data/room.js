@@ -17,30 +17,42 @@ function Room(obj) {
         return obj.id;
     }
 
-    function addLink(link) {
-        var links = getLinks();
-        links.push({id: uuid.v4(), link: link, votes: 0, site: 'youtube', siteId: filterUrlForYoutubeId(link)});
+    function setLinks(links) {
         obj.set('links', links);
+    }
+
+    function addLink(link) {
+        var newLink = {id: uuid.v4(), link: link, votes: 0, site: 'youtube', siteId: filterUrlForYoutubeId(link)};
+        var links = getLinks();
+        links[newLink.id] = newLink;
+        setLinks(links);
+    }
+
+    function removeLink(id) {
+        var links = getLinks();
+        delete links[id];
+        setLinks(links);
     }
 
     function getLinks() {
         return obj.get('links')
     }
 
-    function popLink() {
-        var links = getLinks().reverse();
-        links.pop();
-        links.set('links', links);
+    function adjustVote(id, change) {
+        var links = getLinks();
+        var link = links[id];
+        if (link !== undefined) {
+            link.votes += change;
+            setLinks(links);
+        }
     }
 
     function upVote(id) {
-        var link = getLinks()[id];
-        link.votes =+ 1;
+        adjustVote(id, 1);
     }
 
     function downVote(id) {
-        var link = getLinks()[id];
-        link.votes =- 1;
+        adjustVote(id, -1);
     }
 
     function save(success, error){
@@ -50,8 +62,8 @@ function Room(obj) {
     return {
         getId: getId,
         addLink: addLink,
+        removeLink: removeLink,
         getLinks: getLinks,
-        popLink: popLink,
         upVote: upVote,
         downVote: downVote,
         save: save
@@ -81,7 +93,7 @@ Room.findAll = function() {
 
 Room.create = function(){
     var room = new ParseRoom();
-    room.set('links', []);
+    room.set('links', {});
 
     return new Room(room);
 };
