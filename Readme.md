@@ -2,11 +2,11 @@
 
 # To Do
 ## Derek
-[ ] Work on the queue  
-  [ ] Play links  
-  [ ] Shift queue when complete  
+- [ ] Work on the queue  
+ - [ ] Play links  
+ - [ ] Shift queue when complete  
 
 ## Stuart
-[ ] Play and look for something useful to add  
-    [ ] Implement up/down functionality  
-    [ ] Maybe improve styling  
+- [ ] Play and look for something useful to add  
+ - [ ] Implement up/down functionality  
+ - [ ] Maybe improve styling  
