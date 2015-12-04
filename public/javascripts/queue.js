@@ -1,9 +1,12 @@
 var $ = require('jquery-browserify');
 var youtubeVideo = require('youtube-video');
 
-function Queue(links){
+function Queue(currentLinks){
 
     var currentLink;
+
+    var links = processLinks(currentLinks);
+    links = sortLinks(links);
 
     function start(){
         if(links.length > 0){
@@ -23,13 +26,28 @@ function Queue(links){
 
     function nextLink(){
         popCurrentLink(function(link){
-            currentLink = link;
-            playCurrentLink(currentLink.siteId);
+            if(link) {
+                currentLink = link;
+                playCurrentLink(currentLink.siteId);
+            }
         });
     }
 
+    function popCurrentLink(callback){
+        if(currentLink) {
+            $.ajax('/rooms/' + roomId + '/links/' + currentLink.id + '/remove')
+                .success(function (currentLinks) {
+                    links = processLinks(currentLinks);
+                    links = sortLinks(links);
+                    callback(links.pop());
+                })
+        } else if (links.length > 0) {
+            callback(links[0])
+        }
+    }
+
     function processLinks(links){
-        Object.keys(links).map(function(id){
+        return Object.keys(links).map(function(id){
             var value = links[id];
             value.id = id;
 
@@ -37,17 +55,7 @@ function Queue(links){
         })
     }
 
-    function popCurrentLink(callback){
-        $.ajax('/rooms/'+roomId+'/links/'+currentLink.id+'/remove')
-            .success(function(currentLinks){
-                var links = processLinks(currentLinks);
-                links = sortLinks(currentLinks);
-                callback(links.pop());
-            })
-    }
-
     function sortLinks(links){
-
         return links
     }
 
@@ -55,13 +63,16 @@ function Queue(links){
 }
 
 $(function(){
-    var roomId = $('#player').data('roomId');
+    var roomId = window.roomId = $('#player').data('roomId');
 
     $.ajax('/rooms/'+roomId+'/links')
         .success(function(json){
-            var links = JSON.parse(json).links.reverse();
+            var links = JSON.parse(json).links;
             var queue = Queue(links);
             queue.start();
 
+        })
+        .done(function(error){
+            console.log(error);
         });
 });
