@@ -2,7 +2,6 @@ var $ = require('jquery-browserify');
 var youtubeVideo = require('youtube-video');
 
 function Queue(links){
-    var currentLinkId;
 
     function start(){
         if(links.length > 0){
@@ -10,8 +9,8 @@ function Queue(links){
         }
     }
 
-    function playCurrentLink(link){
-        youtubeVideo(link.siteId, {
+    function playCurrentLink(siteId){
+        youtubeVideo(siteId, {
             elementId: 'youtube-video',
             width: 640,
             height: 390,
@@ -21,8 +20,8 @@ function Queue(links){
     }
 
     function nextLink(){
-        currentLinkId = links.pop();
-        playCurrentLink(currentLinkId);
+        var currentLink = links.pop();
+        playCurrentLink(currentLink.siteId);
     }
 
     return {start: start}
