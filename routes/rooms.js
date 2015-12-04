@@ -2,12 +2,6 @@ var express = require('express');
 var router = express.Router();
 var Room = require('../data/room');
 
-var save = function(res){
-    return function(room){
-        res.send(room)
-    }
-};
-
 router.get('/add', function(req, res) {
     var room = Room.create();
     room.save(
@@ -65,9 +59,8 @@ router.get('/:roomId/links/:linkId/remove', function(req, res) {
         .then(function(room){
             room.removeLink(req.param('linkId'));
             room.save(
-                function(room) {
-                    res
-                        .send(new Room(room));
+                function() {
+                    res.redirect('/rooms/' + req.params.roomId);
                 }
                 ,function(room){
                     res
@@ -103,7 +96,7 @@ router.get('/:id/player', function(req, res) {
     res.render('queue', {room: req.params.id});
 });
 
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
     Room.findAll()
         .then(function(rooms) {
             res.render('rooms', {rooms: rooms});
