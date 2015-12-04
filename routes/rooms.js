@@ -47,28 +47,32 @@ router.post('/:id/links', function(req, res) {
         });
 });
 
-router.post('/:id/pop', function(req, res) {
+router.put('/:id/pop', function(req, res) {
     Room.findOne(req.params.id)
         .then(function(room){
-            room.addLink(req.param('link'));
+            room.popLink();
             room.save(
-                function(){
-                    res.send('/rooms/');
+                function(room){
+                    res.send(new Room(room));
                 }, function(){
                     res.redirect('/rooms/' + req.params.id);
                 });
         });
 });
 
-router.get('/:roomId/links/:linkId/delete', function(req, res) {
-    Room.findOne(req.params.roomId)
+router.get('/:roomId/links/:linkId/remove', function(req, res) {
+    Room.findOne(req.param('roomId'))
         .then(function(room){
-            room.addLink(req.param('link'));
+            room.removeLink(req.param('linkId'));
             room.save(
-                function(){
-                    res.redirect('/rooms/' + req.params.id);
-                }, function(){
-                    res.redirect('/rooms/' + req.params.id);
+                function(room) {
+                    res
+                        .send(new Room(room));
+                }
+                ,function(room){
+                    res
+                        .status(500)
+                        .send(new Room(room));
                 });
         });
 });
