@@ -77,6 +77,28 @@ router.get('/:roomId/links/:linkId/remove', function(req, res) {
         });
 });
 
+router.get('/:roomId/links/:linkId/downvote', function(req, res) {
+    Room.findOne(req.param('roomId'))
+        .then(function(room){
+            room.downVote(req.param('linkId'));
+            function redirect() {
+                res.redirect('/rooms/' + req.params.roomId);
+            }
+            room.save(redirect, redirect);
+        });
+});
+
+router.get('/:roomId/links/:linkId/upvote', function(req, res) {
+    Room.findOne(req.param('roomId'))
+        .then(function(room){
+            room.upVote(req.param('linkId'));
+            function redirect() {
+                res.redirect('/rooms/' + req.params.roomId);
+            }
+            room.save(redirect, redirect);
+        });
+});
+
 router.get('/:id/player', function(req, res) {
     res.render('queue', {room: req.params.id});
 });

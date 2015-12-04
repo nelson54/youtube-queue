@@ -41,7 +41,8 @@ function Room(obj) {
     function adjustVote(id, change) {
         var links = getLinks();
         var link = links[id];
-        if (link !== undefined) {
+        if (link !== undefined &&
+              link.votes + change >= 0) {
             link.votes += change;
             setLinks(links);
         }

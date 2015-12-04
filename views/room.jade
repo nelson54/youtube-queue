@@ -4,7 +4,10 @@ form(method="post", action=path+'/links')
         button(type="submit") +
 if room.getLinks()
     each link in room.getLinks()
-        p= link.link + ': ' + link.votes
+        p
+            a(href=path+'/links/'+link.id+'/downvote') -
+            span=link.link + ': ' + link.votes
+            a(href=path+'/links/'+link.id+'/upvote') +
             a(href=path+'/links/'+link.id+'/remove') X
 else
     p No links found
