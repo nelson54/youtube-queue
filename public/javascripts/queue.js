@@ -28,7 +28,9 @@ function Queue(links){
 }
 
 $(function(){
-    $.ajax('/rooms/yY960TePXu/links')
+    var roomId = $('#player').data('roomId');
+
+    $.ajax('/rooms/'+roomId+'/links')
         .success(function(json){
             var links = JSON.parse(json).links.reverse();
             var queue = Queue(links);

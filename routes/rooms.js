@@ -61,7 +61,7 @@ router.get('/:roomId/links/:linkId/delete', function(req, res) {
 });
 
 router.get('/:id/player', function(req, res) {
-    res.render('queue');
+    res.render('queue', {room: req.params.id});
 });
 
 router.get('/', function(req, res, next) {

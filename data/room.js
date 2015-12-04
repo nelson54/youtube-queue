@@ -27,6 +27,12 @@ function Room(obj) {
         return obj.get('links')
     }
 
+    function popLink() {
+        var links = getLinks().reverse();
+        links.pop();
+        links.set('links', links);
+    }
+
     function upVote(id) {
         var link = getLinks()[id];
         link.votes =+ 1;
@@ -45,6 +51,7 @@ function Room(obj) {
         getId: getId,
         addLink: addLink,
         getLinks: getLinks,
+        popLink: popLink,
         upVote: upVote,
         downVote: downVote,
         save: save
