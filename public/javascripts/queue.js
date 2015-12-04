@@ -12,6 +12,7 @@ function Queue(links){
 
     function playCurrentLink(link){
         youtubeVideo(link.siteId, {
+            elementId: 'youtube-video',
             width: 640,
             height: 390,
             autoplay: true,
