@@ -4,15 +4,6 @@ var ParseRoom = parse.Object.extend("Room");
 
 function Room(obj) {
 
-    function filterUrlForYoutubeId(link){
-        var videoId = link.split('v=')[1];
-        var ampersandPosition = videoId.indexOf('&');
-        if(ampersandPosition != -1) {
-            videoId = videoId.substring(0, ampersandPosition);
-        }
-        return videoId;
-    }
-
     function getId() {
         return obj.id;
     }
@@ -21,8 +12,8 @@ function Room(obj) {
         obj.set('links', links);
     }
 
-    function addLink(link) {
-        var newLink = {id: uuid.v4(), link: link, votes: 0, site: 'youtube', siteId: filterUrlForYoutubeId(link)};
+    function addLink(id, title, image) {
+        var newLink = {id: uuid.v4(), title:title, image:image, votes: 1, site: 'youtube', siteId: id};
         var links = getLinks();
         links[newLink.id] = newLink;
         setLinks(links);

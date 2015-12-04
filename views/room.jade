@@ -6,7 +6,8 @@ if room.getLinks()
     each link in room.getLinks()
         p
             a(href=path+'/links/'+link.id+'/downvote') -
-            span=link.link + ': ' + link.votes
+            img(src=link.image)
+            span=link.title + ': ' + link.votes
             a(href=path+'/links/'+link.id+'/upvote') +
             a(href=path+'/links/'+link.id+'/remove') X
 else

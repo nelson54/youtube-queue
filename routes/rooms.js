@@ -1,6 +1,35 @@
 var express = require('express');
 var router = express.Router();
 var Room = require('../data/room');
+var youTubeData = require('../data/youtube-data-factory')();
+
+var save = function(res){
+    return function(room){
+        res.send(room)
+    }
+};
+
+function filterUrlForYoutubeId(link){
+    var videoId = link.split('v=')[1];
+    var ampersandPosition = videoId.indexOf('&');
+    if(ampersandPosition != -1) {
+        videoId = videoId.substring(0, ampersandPosition);
+    }
+    return videoId;
+}
+
+function addLink(roomId, id, title, image, res){
+    Room.findOne(roomId)
+        .then(function(room){
+            room.addLink(id, title, image);
+            room.save(
+                function(){
+                    res.redirect('/rooms/' + roomId);
+                }, function(){
+                    res.redirect('/rooms/' + roomId);
+                });
+        });
+}
 
 router.get('/add', function(req, res) {
     var room = Room.create();
@@ -29,15 +58,12 @@ router.get('/:id/links', function(req, res){
 });
 
 router.post('/:id/links', function(req, res) {
-    Room.findOne(req.params.id)
-        .then(function(room){
-            room.addLink(req.param('link'));
-            room.save(
-                function(){
-                    res.redirect('/rooms/' + req.params.id);
-                }, function(){
-                    res.redirect('/rooms/' + req.params.id);
-                });
+    var roomId = req.params.id;
+    var siteId = filterUrlForYoutubeId(req.param('link'));
+
+    youTubeData.getData(siteId)
+        .then(function(data){
+            addLink(roomId, siteId, data.title, data.imageSrc, res)
         });
 });
 
