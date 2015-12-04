@@ -7,6 +7,7 @@
  - [ ] Shift queue when complete  
 
 ## Stuart
-- [ ] Play and look for something useful to add  
+- [ ] Play and look for something useful to add
+ - [x] Commit from IntelliJ
  - [ ] Implement up/down functionality  
  - [ ] Maybe improve styling  
