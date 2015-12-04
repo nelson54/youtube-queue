@@ -1,9 +1,10 @@
-form(method="post")
+form(method="post", action=action)
     p
         input(type="text", name="link", placeholder="www.youtube.com/1234")
         button(type="submit") +
 if room.getLinks()
-    each link in room.getLinks()
+    each link, i in room.getLinks()
         p= link.link + ': ' + link.votes
+            a(href=action+'/'+i+'/delete')
 else
     p No links found

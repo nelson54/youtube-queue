@@ -22,17 +22,46 @@ router.get('/add', function(req, res) {
 router.get('/:id/', function(req, res) {
     Room.findOne(req.params.id)
         .then(function(room){
-            res.render('room', {room: room})
+            res.render('room', {action: '/rooms'+req.path+'/links', room: room})
         });
 });
 
-router.post('/:id/', function(req, res) {
+router.get('/:id/links', function(req, res){
+    Room.findOne(req.params.id)
+        .then(function(room){
+            var links = JSON.stringify({links: room.getLinks()});
+            res.send(links);
+        });
+});
+
+router.post('/:id/links', function(req, res) {
     Room.findOne(req.params.id)
         .then(function(room){
             room.addLink(req.param('link'));
-            console.log(room.getLinks());
-            room.save(save(res), save(res));
+            room.save(
+                function(){
+                    res.redirect('/rooms/' + req.params.id);
+                }, function(){
+                    res.redirect('/rooms/' + req.params.id);
+                });
         });
+});
+
+router.get('/:roomId/links/:linkId/delete', function(req, res) {
+    Room.findOne(req.params.roomId)
+        .then(function(room){
+            room.addLink(req.param('link'));
+            room.save(
+                function(){
+                    res.redirect('/rooms/' + req.params.id);
+                }, function(){
+                    res.redirect('/rooms/' + req.params.id);
+                });
+        });
+});
+
+router.get('/:id/player', function(req, res) {
+    res.render('queue');
 });
 
 router.get('/', function(req, res, next) {

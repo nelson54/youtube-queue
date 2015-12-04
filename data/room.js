@@ -4,13 +4,22 @@ var ParseRoom = parse.Object.extend("Room");
 
 function Room(obj) {
 
+    function filterUrlForYoutubeId(link){
+        var videoId = link.split('v=')[1];
+        var ampersandPosition = videoId.indexOf('&');
+        if(ampersandPosition != -1) {
+            videoId = videoId.substring(0, ampersandPosition);
+        }
+        return videoId;
+    }
+
     function getId() {
         return obj.id;
     }
 
     function addLink(link) {
         var links = getLinks();
-        links.push({id: uuid.v4(), link: link, votes: 0});
+        links.push({id: uuid.v4(), link: link, votes: 0, site: 'youtube', siteId: filterUrlForYoutubeId(link)});
         obj.set('links', links);
     }
 
