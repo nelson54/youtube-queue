@@ -85,7 +85,7 @@ function Queue(currentLinks){
     }
 
     function sortLinks(links){
-        return links
+        return links.sort(function(a, b){ return a.votes - b.votes})
     }
 
     return {start: start}
