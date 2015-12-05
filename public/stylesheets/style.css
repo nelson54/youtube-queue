@@ -7,6 +7,10 @@ a {
   color: #00B7FF;
 }
 
+#room ul {
+  list-style: none;
+}
+
 #room li {
   height:90px;
 }
@@ -36,6 +40,5 @@ a {
   line-height:30px;
   text-decoration: none;
   font-weight:bold;
-
 }
 
