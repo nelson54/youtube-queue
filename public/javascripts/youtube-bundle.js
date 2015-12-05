@@ -9886,7 +9886,7 @@ function Queue(currentLinks){
     }
 
     function checkIfVideoIsCancelled() {
-        $.ajax('/rooms/' + roomId + '/links/' + currentLink.id + '/remove')
+        $.ajax('/rooms/' + roomId + '/links')
             .success(function (currentLinks) {
                 var exists = false;
                 links = processLinks(currentLinks);
@@ -9907,7 +9907,7 @@ function Queue(currentLinks){
 
     function popCurrentLink(callback){
         if(currentLink) {
-            $.ajax('/rooms/' + roomId + '/links')
+            $.ajax('/rooms/' + roomId + '/links/' + currentLink.id + '/remove')
                 .success(function (currentLinks) {
                     links = processLinks(currentLinks);
                     links = sortLinks(links);
