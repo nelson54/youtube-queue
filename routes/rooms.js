@@ -85,8 +85,8 @@ router.get('/:roomId/links/:linkId/remove', function(req, res) {
         .then(function(room){
             room.removeLink(req.param('linkId'));
             room.save(
-                function() {
-                    res.redirect('/rooms/' + req.params.roomId);
+                function(room) {
+                    res.send(new Room(room).getLinks());
                 }
                 ,function(room){
                     res

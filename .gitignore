@@ -1,4 +1,3 @@
 node_modules/*
 .idea/*
 *.iml
-public/javascripts/youtube-bundle.js

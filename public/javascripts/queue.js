@@ -16,18 +16,24 @@ function Queue(currentLinks){
 
     function playCurrentLink(siteId){
         youtubeVideo(siteId, {
-            elementId: 'youtube-video',
-            width: 640,
-            height: 390,
+            elementId: 'player',
+            selector: 'youtube-player',
+            width: 1280,
+            height: 720,
             autoplay: true,
+            controls: true,
             onEnd: nextLink
         });
+
+        $('#player').attr('style', 'margin: 0; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%;')
     }
 
     function nextLink(){
         popCurrentLink(function(link){
             if(link) {
                 currentLink = link;
+                $('#player, #youtube-video').remove();
+                $('body').append('<div id="player"><div id="youtube-video"></div></div>');
                 playCurrentLink(currentLink.siteId);
             }
         });
