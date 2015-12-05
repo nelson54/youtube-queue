@@ -9855,6 +9855,7 @@ function Queue(currentLinks){
     function start(){
         if(links.length > 0){
             nextLink();
+            setInterval(checkIfVideoIsCancelled, 2000)
         }
     }
 
@@ -9882,6 +9883,25 @@ function Queue(currentLinks){
                 playCurrentLink(currentLink.siteId);
             }
         });
+    }
+
+    function checkIfVideoIsCancelled() {
+        $.ajax('/rooms/' + roomId + '/links/' + currentLink.id + '/remove')
+            .success(function (links) {
+                var exists = false;
+                links = processLinks(currentLinks);
+                links = sortLinks(links);
+                for(var link in links){
+                    if(link.id == currentLink.id) {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if(!exists){
+                    nextLink();
+                }
+            })
     }
 
     function popCurrentLink(callback){
