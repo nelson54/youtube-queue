@@ -45,6 +45,7 @@ function Queue(currentLinks){
         $.ajax('/rooms/' + roomId + '/links')
             .success(function (currentLinks) {
                 var exists = false;
+                currentLinks = JSON.parse(currentLinks);
                 links = processLinks(currentLinks);
                 links = sortLinks(links);
                 for(var i in links){
