@@ -9891,8 +9891,8 @@ function Queue(currentLinks){
                 var exists = false;
                 links = processLinks(currentLinks);
                 links = sortLinks(links);
-                for(var link in links){
-                    if(link.id == currentLink.id) {
+                for(var i in links){
+                    if(links[i].id == currentLink.id) {
                         exists = true;
                         break;
                     }
