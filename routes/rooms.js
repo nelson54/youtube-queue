@@ -45,14 +45,24 @@ router.get('/add', function(req, res) {
 router.get('/:id/', function(req, res) {
     Room.findOne(req.params.id)
         .then(function(room){
-            res.render('room', {path: '/rooms'+req.path, room: room})
+
+            var links = Object.keys(room.getLinks())
+                .map(function(i){return room.getLinks()[i]})
+                .sort(function(a, b){ return a.votes - b.votes})
+                .reverse();
+
+            res.render('room', {path: '/rooms'+req.path, links: links})
         });
 });
 
 router.get('/:id/links', function(req, res){
     Room.findOne(req.params.id)
         .then(function(room){
-            var links = JSON.stringify({links: room.getLinks()});
+            var links = Object.keys(room.getLinks())
+                .map(function(i){return room.getLinks()[i]})
+                .sort(function(a, b){ return a.votes - b.votes})
+                .reverse();
+
             res.send(links);
         });
 });

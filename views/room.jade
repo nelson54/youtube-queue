@@ -2,8 +2,8 @@ form(method="post", action=path+'/links')
     p
         input(type="text", name="link", placeholder="www.youtube.com/1234")
         button(type="submit") +
-if room.getLinks()
-    each link in room.getLinks()
+if links.length
+    each link in links
         p
             a(href=path+'/links/'+link.id+'/upvote') +
             a(href=path+'/links/'+link.id+'/downvote') -
