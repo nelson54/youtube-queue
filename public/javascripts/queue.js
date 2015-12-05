@@ -32,6 +32,7 @@ function Queue(currentLinks){
         popCurrentLink(function(link){
             if(link) {
                 currentLink = link;
+                $('iframe').unbind();
                 $('#player, #youtube-video').remove();
                 $('body').append('<div id="player"><div id="youtube-video"></div></div>');
                 playCurrentLink(currentLink.siteId);
