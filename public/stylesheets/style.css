@@ -6,3 +6,37 @@ body {
 a {
   color: #00B7FF;
 }
+
+#room li {
+  height:90px;
+}
+
+#room li > * {
+  line-height:90px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+#room li > span {
+  margin-left: 10px;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 90px;
+}
+
+#room .votes {
+  height:30px;
+  margin-right:10px;
+  text-align:center;
+}
+
+#room .down-vote, #room .up-vote {
+  display:block;
+  line-height:30px;
+  text-decoration: none;
+  font-weight:bold;
+
+}
+

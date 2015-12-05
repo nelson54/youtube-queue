@@ -1,14 +1,20 @@
-form(method="post", action=path+'/links')
-    p
+extends layout
+
+block content
+  div#room
+    form(method="post", action=path+'/links')
+      p
         input(type="text", name="link", placeholder="www.youtube.com/1234")
         button(type="submit") +
-if links.length
-    each link in links
-        p
-            a(href=path+'/links/'+link.id+'/upvote') +
-            a(href=path+'/links/'+link.id+'/downvote') -
+    if links.length
+      ul
+        each link in links
+          li
+            div.votes
+              a(href=path+'/links/'+link.id+'/upvote', class='up-vote') +
+              a(href=path+'/links/'+link.id+'/downvote', class='down-vote') -
             img(src=link.image)
             span=link.title + ': ' + link.votes
             a(href=path+'/links/'+link.id+'/remove') X
-else
-    p No links found
+    else
+      p No links found
