@@ -9,6 +9,7 @@ a {
 
 #room ul {
   list-style: none;
+  padding-left: 0;
 }
 
 #room li {
@@ -23,7 +24,7 @@ a {
 
 #room li > span {
   margin-left: 10px;
-  width: 250px;
+  width: 350px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
