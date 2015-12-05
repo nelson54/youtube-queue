@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var Room = require('../data/room');
 var youTubeData = require('../data/youtube-data-factory')();
+var youtubedl = require('youtube-dl');
+var Promise = require("bluebird");
 
 var save = function(res){
     return function(room){
@@ -18,17 +20,24 @@ function filterUrlForYoutubeId(link){
     return videoId;
 }
 
-function addLink(roomId, id, title, image, res){
+function addLink(roomId, id, url, title, image, res){
+    var deffered = Promise.pending();
     Room.findOne(roomId)
         .then(function(room){
-            room.addLink(id, title, image);
-            room.save(
-                function(){
+            var linkId = room.addLink(id, title, image);
+            return room.save(
+                function(room){
                     res.redirect('/rooms/' + roomId);
+                    var updatedRoom = new Room(room);
+                    updatedRoom.linkId = linkId;
+                    deffered.resolve(updatedRoom);
                 }, function(){
                     res.redirect('/rooms/' + roomId);
+                    deffered.resolve(new Room(room));
                 });
         });
+
+    return deffered.promise;
 }
 
 router.get('/add', function(req, res) {
@@ -69,11 +78,29 @@ router.get('/:id/links', function(req, res){
 
 router.post('/:id/links', function(req, res) {
     var roomId = req.params.id;
-    var siteId = filterUrlForYoutubeId(req.param('link'));
+    var link = req.param('link');
+    var siteId = filterUrlForYoutubeId(link);
+    var linkId;
 
     youTubeData.getData(siteId)
         .then(function(data){
-            addLink(roomId, siteId, data.title, data.imageSrc, res)
+            return addLink(roomId, siteId, req.param('link'), data.title, data.imageSrc, res)
+        })
+        .then(function(room){
+            var deferred = Promise.pending();
+            var video = youtubedl(link);
+
+            video.on('info', function(info) {
+                info.room = room;
+                info.linkId = room.linkId;
+                deferred.resolve(info)
+            });
+
+            return deferred.promise;
+        })
+        .then(function(info){
+            info.room.setLinkVideoUrl(info.linkId, info.url);
+            info.room.save(console.log, console.log);
         });
 });
 

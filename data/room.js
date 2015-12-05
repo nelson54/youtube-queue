@@ -17,11 +17,18 @@ function Room(obj) {
         var links = getLinks();
         links[newLink.id] = newLink;
         setLinks(links);
+        return newLink.id;
     }
 
     function removeLink(id) {
         var links = getLinks();
         delete links[id];
+        setLinks(links);
+    }
+
+    function setLinkVideoUrl(id, url) {
+        var links = getLinks();
+        links[id].videoUrl = url;
         setLinks(links);
     }
 
@@ -52,6 +59,7 @@ function Room(obj) {
     }
 
     return {
+        setLinkVideoUrl: setLinkVideoUrl,
         getId: getId,
         addLink: addLink,
         removeLink: removeLink,
