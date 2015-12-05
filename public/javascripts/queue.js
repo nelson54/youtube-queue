@@ -55,6 +55,7 @@ function Queue(currentLinks){
                 }
 
                 if(!exists){
+                    currentLink = null;
                     nextLink();
                 }
             })
