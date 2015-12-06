@@ -85,7 +85,7 @@ function Room(obj) {
         getLinks: getLinks,
         upVote: upVote,
         downVote: downVote,
-        getSortedLinks: getSortedLinks(),
+        getSortedLinks: getSortedLinks,
         save: save
     };
 }
