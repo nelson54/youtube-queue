@@ -1,7 +1,22 @@
 extends layout
 
 block content
+  script(type="application/javascript", src="https://code.jquery.com/jquery-2.1.4.min.js")
+
+  script.
+    $(document).ready(function () {
+      $('#name').click(function () {
+        $('#name').hide();
+        $('#nameForm').show();
+      });
+    });
+
   div#room
+    a#name(href='javascript:void(0)', title="Edit room name")
+      h1=name
+    form#nameForm(method="post", action=path+'/name', style='display:none')
+        input(type="text", name="name", value=name placeholder="Room name")
+        button(type="submit") Save
     form(method="post", action=path+'/links')
       p
         input(type="text", name="link", placeholder="www.youtube.com/1234")

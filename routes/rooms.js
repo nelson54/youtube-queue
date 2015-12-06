@@ -44,7 +44,7 @@ router.get('/add', function(req, res) {
     var room = Room.create();
     room.save(
         function(room){
-            res.render('room', {room: new Room(room)})
+            res.redirect('/rooms/' + room.id);
         },function(room, error){
             res.send(error);
         }
@@ -60,7 +60,7 @@ router.get('/:id/', function(req, res) {
                 .sort(function(a, b){ return a.votes - b.votes})
                 .reverse();
 
-            res.render('room', {path: '/rooms'+req.path, links: links})
+            res.render('room', {path: '/rooms'+req.path, name: room.getName(), links: links})
         });
 });
 
@@ -73,6 +73,20 @@ router.get('/:id/links', function(req, res){
                 .reverse();
 
             res.send(links);
+        });
+});
+
+router.post('/:id/name', function(req, res) {
+    Room.findOne(req.params.id)
+        .then(function(room){
+            var name = req.param('name');
+            room.setName(name);
+            room.save(function() {
+                res.redirect('/rooms/' + req.params.id);
+            }, function () {
+                res.status(500)
+                    .send({msg: "Couldn't save name"});
+            });
         });
 });
 

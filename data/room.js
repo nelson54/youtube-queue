@@ -8,6 +8,14 @@ function Room(obj) {
         return obj.id;
     }
 
+    function getName() {
+        return obj.get('name') || obj.id;
+    }
+
+    function setName(name) {
+        obj.set('name', name);
+    }
+
     function setLinks(links) {
         obj.set('links', links);
     }
@@ -61,6 +69,8 @@ function Room(obj) {
     return {
         setLinkVideoUrl: setLinkVideoUrl,
         getId: getId,
+        getName: getName,
+        setName: setName,
         addLink: addLink,
         removeLink: removeLink,
         getLinks: getLinks,
