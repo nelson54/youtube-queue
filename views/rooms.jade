@@ -1,5 +1,6 @@
 a(href='/rooms/add/') Add new room
 
-each room in rooms
-    p
-        a(href='/rooms/' + room.getId())= room.getName()
+ul
+    each room in rooms
+        li
+            a(href='/rooms/' + room.getId())= room.getName()
