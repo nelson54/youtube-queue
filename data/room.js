@@ -108,4 +108,9 @@ Room.create = function(){
     return new Room(room);
 };
 
+Room.sortLinksByVoteDesc = function (links) {
+    return Object.keys(links)
+        .map(function(i){return links[i]})
+        .sort((a, b) => b.votes - a.votes)
+}
 module.exports = Room;

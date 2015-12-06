@@ -54,25 +54,14 @@ router.get('/add', function(req, res) {
 router.get('/:id/', function(req, res) {
     Room.findOne(req.params.id)
         .then(function(room){
-
-            var roomLinks = room.getLinks();
-            var links = Object.keys(roomLinks)
-                .map(function(i){return roomLinks[i]})
-                .sort((a, b) => b.votes - a.votes);
-
-            res.render('room', {path: '/rooms'+req.path, name: room.getName(), links: links})
+            res.render('room', {path: '/rooms'+req.path, name: room.getName(), links: Room.sortLinksByVoteDesc(room.getLinks())})
         });
 });
 
 router.get('/:id/links', function(req, res){
     Room.findOne(req.params.id)
         .then(function(room){
-            var links = Object.keys(room.getLinks())
-                .map(function(i){return room.getLinks()[i]})
-                .sort(function(a, b){ return a.votes - b.votes})
-                .reverse();
-
-            res.send(links);
+            res.send(Room.sortLinksByVoteDesc(room.getLinks()));
         });
 });
 
