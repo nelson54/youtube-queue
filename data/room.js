@@ -66,6 +66,15 @@ function Room(obj) {
         return obj.save(null, {success: success, error: error});
     }
 
+    function getSortedLinks() {
+        var links = getLinks();
+        return Object.keys(links)
+            .map(function(i){return links[i]})
+            .sort(function (a, b) {
+                return b.votes - a.votes
+            });
+    }
+
     return {
         setLinkVideoUrl: setLinkVideoUrl,
         getId: getId,
@@ -76,6 +85,7 @@ function Room(obj) {
         getLinks: getLinks,
         upVote: upVote,
         downVote: downVote,
+        getSortedLinks: getSortedLinks(),
         save: save
     };
 }
@@ -108,11 +118,4 @@ Room.create = function(){
     return new Room(room);
 };
 
-Room.sortLinksByVoteDesc = function (links) {
-    return Object.keys(links)
-        .map(function(i){return links[i]})
-        .sort(function (a, b) {
-            return b.votes - a.votes
-        });
-}
 module.exports = Room;

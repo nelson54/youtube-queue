@@ -54,14 +54,14 @@ router.get('/add', function(req, res) {
 router.get('/:id/', function(req, res) {
     Room.findOne(req.params.id)
         .then(function(room){
-            res.render('room', {path: '/rooms'+req.path, name: room.getName(), links: Room.sortLinksByVoteDesc(room.getLinks())})
+            res.render('room', {path: '/rooms'+req.path, name: room.getName(), links: room.getSortedLinks()})
         });
 });
 
 router.get('/:id/links', function(req, res){
     Room.findOne(req.params.id)
         .then(function(room){
-            res.send(Room.sortLinksByVoteDesc(room.getLinks()));
+            res.send(room.getSortedLinks());
         });
 });
 
