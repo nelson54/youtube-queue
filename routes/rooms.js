@@ -165,7 +165,7 @@ router.get('/:id/player', function(req, res) {
 router.get('/', function(req, res) {
     Room.findAll()
         .then(function(rooms) {
-            var roomsByName = rooms.sort((a,b) => a.getName().localeCompare(b.getName()))
+            var roomsByName = rooms.sort(function(a,b) { return a.getName().localeCompare(b.getName())});
             res.render('rooms', {rooms: roomsByName});
         });
 });
