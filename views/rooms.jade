@@ -1,8 +1,12 @@
-a(href='/rooms/add/') Add new room
+extends layout
 
-ul
-    each room in rooms
+block content
+  div#rooms
+    a(href='/rooms/add/') Add new room
+
+    ul
+      each room in rooms
         li
-            a(href='/rooms/' + room.getId())= room.getName()
-            | &nbsp;
-            a(href='/rooms/' + room.getId() + '/remove') X
+          a(href='/rooms/' + room.getId())= room.getName()
+          | &nbsp;
+          a(href='/rooms/' + room.getId() + '/remove') X
