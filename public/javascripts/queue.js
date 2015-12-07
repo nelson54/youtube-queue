@@ -1,12 +1,9 @@
 var $ = require('jquery-browserify');
 var youtubeVideo = require('youtube-video');
 
-function Queue(currentLinks){
+function Queue(links){
 
     var currentLink;
-
-    var links = processLinks(currentLinks);
-    links = sortLinks(links);
 
     function start(){
         if(links.length > 0){
@@ -45,9 +42,7 @@ function Queue(currentLinks){
         $.ajax('/rooms/' + roomId + '/links')
             .success(function (currentLinks) {
                 var exists = false;
-                currentLinks = JSON.parse(currentLinks).links;
-                links = processLinks(currentLinks);
-                links = sortLinks(links);
+                links = sortLinks(currentLinks);
                 for(var i in links){
                     if(links[i].id == currentLink.id) {
                         exists = true;
@@ -66,8 +61,7 @@ function Queue(currentLinks){
         if(currentLink) {
             $.ajax('/rooms/' + roomId + '/links/' + currentLink.id + '/remove')
                 .success(function (currentLinks) {
-                    links = processLinks(currentLinks);
-                    links = sortLinks(links);
+                    links = sortLinks(currentLinks);
                     callback(links.pop());
                 })
         } else if (links.length > 0) {
@@ -75,17 +69,8 @@ function Queue(currentLinks){
         }
     }
 
-    function processLinks(links){
-        return Object.keys(links).map(function(id){
-            var value = links[id];
-            value.id = id;
-
-            return value;
-        })
-    }
-
     function sortLinks(links){
-        return links
+        return links.sort(function(a, b){ return a.votes - b.votes})
     }
 
     return {start: start}
@@ -95,8 +80,7 @@ $(function(){
     var roomId = window.roomId = $('#player').data('roomId');
 
     $.ajax('/rooms/'+roomId+'/links')
-        .success(function(json){
-            var links = JSON.parse(json).links;
+        .success(function(links){
             var queue = Queue(links);
             queue.start();
 

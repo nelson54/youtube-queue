@@ -1,14 +1,35 @@
-form(method="post", action=path+'/links')
-    p
+extends layout
+
+block content
+  script(type="application/javascript", src="https://code.jquery.com/jquery-2.1.4.min.js")
+
+  script.
+    $(document).ready(function () {
+      $('#name').click(function () {
+        $('#name').hide();
+        $('#nameForm').show();
+      });
+    });
+
+  div#room
+    a#name(href='javascript:void(0)', title="Edit room name")
+      h1=name
+    form#nameForm(method="post", action=path+'/name', style='display:none')
+        input(type="text", name="name", value=name placeholder="Room name")
+        button(type="submit") Save
+    form(method="post", action=path+'/links')
+      p
         input(type="text", name="link", placeholder="www.youtube.com/1234")
         button(type="submit") +
-if room.getLinks()
-    each link in room.getLinks()
-        p
-            a(href=path+'/links/'+link.id+'/upvote') +
-            a(href=path+'/links/'+link.id+'/downvote') -
+    if links.length
+      ul
+        each link in links
+          li
+            div.votes
+              a(href=path+'/links/'+link.id+'/upvote', class='up-vote') +
+              a(href=path+'/links/'+link.id+'/downvote', class='down-vote') -
             img(src=link.image)
             span=link.title + ': ' + link.votes
             a(href=path+'/links/'+link.id+'/remove') X
-else
-    p No links found
+    else
+      p No links found

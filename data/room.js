@@ -8,6 +8,14 @@ function Room(obj) {
         return obj.id;
     }
 
+    function getName() {
+        return obj.get('name') || obj.id;
+    }
+
+    function setName(name) {
+        obj.set('name', name);
+    }
+
     function setLinks(links) {
         obj.set('links', links);
     }
@@ -17,11 +25,18 @@ function Room(obj) {
         var links = getLinks();
         links[newLink.id] = newLink;
         setLinks(links);
+        return newLink.id;
     }
 
     function removeLink(id) {
         var links = getLinks();
         delete links[id];
+        setLinks(links);
+    }
+
+    function setLinkVideoUrl(id, url) {
+        var links = getLinks();
+        links[id].videoUrl = url;
         setLinks(links);
     }
 
@@ -51,13 +66,26 @@ function Room(obj) {
         return obj.save(null, {success: success, error: error});
     }
 
+    function getSortedLinks() {
+        var links = getLinks();
+        return Object.keys(links)
+            .map(function(i){return links[i]})
+            .sort(function (a, b) {
+                return b.votes - a.votes
+            });
+    }
+
     return {
+        setLinkVideoUrl: setLinkVideoUrl,
         getId: getId,
+        getName: getName,
+        setName: setName,
         addLink: addLink,
         removeLink: removeLink,
         getLinks: getLinks,
         upVote: upVote,
         downVote: downVote,
+        getSortedLinks: getSortedLinks,
         save: save
     };
 }

@@ -20,7 +20,8 @@
     "parse": "^1.6.9",
     "request": "^2.67.0",
     "require-sdk": "0.0.x",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "youtube-dl": "^1.10.5"
   },
   "devDependencies": {
     "browserify": "^12.0.1",
