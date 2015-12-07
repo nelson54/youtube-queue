@@ -75,6 +75,10 @@ function Room(obj) {
             });
     }
 
+    function remove(success, error) {
+        obj.destroy({success: success, error: error});
+    }
+
     return {
         setLinkVideoUrl: setLinkVideoUrl,
         getId: getId,
@@ -86,7 +90,8 @@ function Room(obj) {
         upVote: upVote,
         downVote: downVote,
         getSortedLinks: getSortedLinks,
-        save: save
+        save: save,
+        remove: remove
     };
 }
 
