@@ -81,7 +81,7 @@ router.post('/:id/name', function(req, res) {
 
 router.post('/:id/links', function(req, res) {
     var roomId = req.params.id;
-    var link = req.param('link');
+    var link = encodeURIComponent(req.param('link'));
     var siteId = filterUrlForYoutubeId(link);
     var linkId;
 
