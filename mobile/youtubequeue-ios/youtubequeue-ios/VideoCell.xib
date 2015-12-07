@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iHz-TN-o38" customClass="VideoCell" customModule="youtubequeue_ios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iHz-TN-o38" id="AQi-MD-em1">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoe-C8-l4D" userLabel="voteCount">
+                        <rect key="frame" x="294" y="11" width="18" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zXc-GM-7Ql">
+                        <rect key="frame" x="44" y="2" width="51" height="39"/>
+                        <animations/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uha-T4-gcb">
+                        <rect key="frame" x="8" y="-5" width="30" height="22"/>
+                        <animations/>
+                        <state key="normal" title="up"/>
+                        <connections>
+                            <action selector="upVoteButtonPressed:" destination="iHz-TN-o38" eventType="touchUpInside" id="YiE-Sc-W3K"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1E-5V-Hoe">
+                        <rect key="frame" x="4" y="25" width="38" height="19"/>
+                        <animations/>
+                        <state key="normal" title="down"/>
+                        <connections>
+                            <action selector="downVoteButtonPressed:" destination="iHz-TN-o38" eventType="touchUpInside" id="3R3-iA-Vtz"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3e-nH-rSG">
+                        <rect key="frame" x="116" y="14" width="170" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <color key="backgroundColor" red="0.92076326971894296" green="1" blue="0.30062558084631719" alpha="1" colorSpace="calibratedRGB"/>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="thumbnailImageView" destination="zXc-GM-7Ql" id="AUh-ma-hwz"/>
+                <outlet property="title" destination="Y3e-nH-rSG" id="kjh-qB-vKS"/>
+                <outlet property="votesLabel" destination="eoe-C8-l4D" id="Etg-BI-pAm"/>
+            </connections>
+            <point key="canvasLocation" x="313" y="81"/>
+        </tableViewCell>
+    </objects>
+</document>

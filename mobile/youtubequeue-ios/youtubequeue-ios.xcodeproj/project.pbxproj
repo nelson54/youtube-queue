@@ -15,6 +15,11 @@
 		3ED7E5F7CEC11335A9F21CDF /* youtubequeue_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7E47848067D20F0140EDC /* youtubequeue_iosTests.swift */; };
 		3ED7EEA94D08501183896F1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ED7E60559F7B53E36E1A56B /* LaunchScreen.storyboard */; };
 		3ED7EEF64CCA92A456D40056 /* youtubequeue_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7E71824F560791DCE0D91 /* youtubequeue_iosUITests.swift */; };
+		4CBD56D41C1378C9000D25E5 /* NSNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD56D31C1378C9000D25E5 /* NSNetworkManager.swift */; };
+		4CBD56D61C137AE2000D25E5 /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD56D51C137AE2000D25E5 /* VideoList.swift */; };
+		4CBD56D81C137AF1000D25E5 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD56D71C137AF1000D25E5 /* Video.swift */; };
+		4CBD56DD1C14C5C8000D25E5 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD56DC1C14C5C8000D25E5 /* VideoCell.swift */; };
+		4CBD56E11C14CF45000D25E5 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBD56E01C14CF45000D25E5 /* VideoCell.xib */; };
 		4CBED3D81C1279ED00269F23 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBED3D71C1279ED00269F23 /* Accelerate.framework */; };
 		4CBED3DA1C1279FA00269F23 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBED3D91C1279FA00269F23 /* AudioToolbox.framework */; };
 		4CBED3DC1C127A0200269F23 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBED3DB1C127A0200269F23 /* AVFoundation.framework */; };
@@ -25,7 +30,7 @@
 		4CBED3E61C127A4400269F23 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBED3E51C127A4400269F23 /* MediaPlayer.framework */; };
 		4CBED3E81C127A4F00269F23 /* MediaToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBED3E71C127A4F00269F23 /* MediaToolbox.framework */; };
 		4CBED3EA1C127A5800269F23 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBED3E91C127A5800269F23 /* SystemConfiguration.framework */; };
-		4CC16E1B2DA88864BF6BCA8C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E936316E416D3DCA487DEF8E /* libPods.a */; };
+		AC4A8D82A6A37A4AF1C65877 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32FE95DBACB748F2714829B8 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32FE95DBACB748F2714829B8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED7E0AF15875F7EE311E7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ED7E32D3A059AD2C3522045 /* youtubequeue-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "youtubequeue-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED7E3B3A1C0517E85826452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +66,11 @@
 		3ED7ED3E99AA04583CE34E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		3ED7EE0B0997BD4DDFB2E747 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		3ED7EF16F8FFDC97588EF8E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4CBD56D31C1378C9000D25E5 /* NSNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNetworkManager.swift; sourceTree = "<group>"; };
+		4CBD56D51C137AE2000D25E5 /* VideoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
+		4CBD56D71C137AF1000D25E5 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		4CBD56DC1C14C5C8000D25E5 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		4CBD56E01C14CF45000D25E5 /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		4CBED3D71C1279ED00269F23 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		4CBED3D91C1279FA00269F23 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4CBED3DB1C127A0200269F23 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -73,7 +84,6 @@
 		4CBED3EC1C127D8100269F23 /* YoutubeQueue-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "YoutubeQueue-Bridging-Header.h"; path = "../YoutubeQueue-Bridging-Header.h"; sourceTree = "<group>"; };
 		5AA8FFE310607C04E23485AF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D2BF9FF32408C60EB713284E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		E936316E416D3DCA487DEF8E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +115,7 @@
 				4CBED3E21C127A3000269F23 /* GoogleCast.framework in Frameworks */,
 				4CBED3DA1C1279FA00269F23 /* AudioToolbox.framework in Frameworks */,
 				4CBED3D81C1279ED00269F23 /* Accelerate.framework in Frameworks */,
-				4CC16E1B2DA88864BF6BCA8C /* libPods.a in Frameworks */,
+				AC4A8D82A6A37A4AF1C65877 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +141,11 @@
 				3ED7EF16F8FFDC97588EF8E8 /* AppDelegate.swift */,
 				3ED7E9C93846597207090684 /* Main.storyboard */,
 				3ED7E936956625586EE4D0D8 /* ViewController.swift */,
+				4CBD56D31C1378C9000D25E5 /* NSNetworkManager.swift */,
+				4CBD56D51C137AE2000D25E5 /* VideoList.swift */,
+				4CBD56D71C137AF1000D25E5 /* Video.swift */,
+				4CBD56DC1C14C5C8000D25E5 /* VideoCell.swift */,
+				4CBD56E01C14CF45000D25E5 /* VideoCell.xib */,
 			);
 			path = "youtubequeue-ios";
 			sourceTree = "<group>";
@@ -180,7 +195,7 @@
 				4CBED3DB1C127A0200269F23 /* AVFoundation.framework */,
 				4CBED3D91C1279FA00269F23 /* AudioToolbox.framework */,
 				4CBED3D71C1279ED00269F23 /* Accelerate.framework */,
-				E936316E416D3DCA487DEF8E /* libPods.a */,
+				32FE95DBACB748F2714829B8 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CBD56E11C14CF45000D25E5 /* VideoCell.xib in Resources */,
 				3ED7E36D81072BE3C7148020 /* Assets.xcassets in Resources */,
 				3ED7EEA94D08501183896F1F /* LaunchScreen.storyboard in Resources */,
 				3ED7E4128D91CA6E4BCA35B6 /* Main.storyboard in Resources */,
@@ -380,7 +396,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ED7E563DA401499D23336BC /* AppDelegate.swift in Sources */,
+				4CBD56D61C137AE2000D25E5 /* VideoList.swift in Sources */,
 				3ED7E10AD44FF9D342ADF689 /* ViewController.swift in Sources */,
+				4CBD56D41C1378C9000D25E5 /* NSNetworkManager.swift in Sources */,
+				4CBD56D81C137AF1000D25E5 /* Video.swift in Sources */,
+				4CBD56DD1C14C5C8000D25E5 /* VideoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

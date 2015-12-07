@@ -16,12 +16,56 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRf-c6-RhV">
+                                <rect key="frame" x="175" y="521" width="32" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Cast"/>
+                                <connections>
+                                    <action selector="cast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="svP-NL-45L"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JQc-BT-0Ng">
+                                <rect key="frame" x="0.0" y="48" width="600" height="471"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="uik-0C-QJb"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="S9b-6k-gEP"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce5-1X-EZW">
+                                <rect key="frame" x="114" y="521" width="30" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="tappedAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B92-F5-CTc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPP-8q-H4Z">
+                                <rect key="frame" x="215" y="521" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="tappedCastButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CY0-Ze-NPZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mPP-8q-H4Z" secondAttribute="bottom" constant="20" id="Fwt-BO-o0D"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dRf-c6-RhV" secondAttribute="bottom" constant="20" id="hbv-PG-4gp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="JQc-BT-0Ng" id="H9C-vQ-4YZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="288" y="419"/>
         </scene>
     </scenes>
 </document>
