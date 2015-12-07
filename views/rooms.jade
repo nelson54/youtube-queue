@@ -4,3 +4,5 @@ ul
     each room in rooms
         li
             a(href='/rooms/' + room.getId())= room.getName()
+            | &nbsp;
+            a(href='/rooms/' + room.getId() + '/remove') X

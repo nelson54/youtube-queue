@@ -164,6 +164,21 @@ router.get('/:id/player', function(req, res) {
     res.render('queue', {room: req.params.id});
 });
 
+router.get('/:roomId/remove', function(req, res) {
+    Room.findOne(req.param('roomId'))
+        .then(function(room){
+            room.remove(
+                function(room) {
+                    res.redirect('/rooms');
+                }
+                ,function(room){
+                    res
+                        .status(500)
+                        .send({ msg: "Failed to delete room"});
+                });
+        });
+});
+
 router.get('/', function(req, res) {
     Room.findAll()
         .then(function(rooms) {
