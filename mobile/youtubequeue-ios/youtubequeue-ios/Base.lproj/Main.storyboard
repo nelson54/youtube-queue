@@ -69,6 +69,17 @@
                                     <action selector="btnCastTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u5W-IN-eKu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObT-2a-3ba">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="72" y="28" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="addRandomVideos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0cs-og-ny5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,6 +88,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="leadingMargin" secondItem="ce5-1X-EZW" secondAttribute="leading" id="EjK-ZH-61L"/>
+                            <constraint firstItem="ObT-2a-3ba" firstAttribute="leading" secondItem="ce5-1X-EZW" secondAttribute="trailing" constant="22" id="MSt-Qf-NkQ"/>
                             <constraint firstItem="gGK-Rs-tL2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="NJh-Rt-X8J">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -88,29 +100,33 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="gGK-Rs-tL2"/>
+                                <exclude reference="ObT-2a-3ba"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="BPx-1g-6D7"/>
-                                <exclude reference="NJh-Rt-X8J"/>
+                                <exclude reference="EjK-ZH-61L"/>
+                                <exclude reference="MSt-Qf-NkQ"/>
                                 <exclude reference="XSj-Nq-jRn"/>
                                 <exclude reference="gvS-6P-8FB"/>
                                 <exclude reference="sjN-BL-Rha"/>
                                 <exclude reference="z7M-Eu-d5m"/>
-                                <exclude reference="EjK-ZH-61L"/>
+                                <exclude reference="BPx-1g-6D7"/>
+                                <exclude reference="NJh-Rt-X8J"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="gGK-Rs-tL2"/>
+                                <include reference="ObT-2a-3ba"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="BPx-1g-6D7"/>
-                                <include reference="NJh-Rt-X8J"/>
+                                <include reference="EjK-ZH-61L"/>
+                                <include reference="MSt-Qf-NkQ"/>
                                 <include reference="XSj-Nq-jRn"/>
                                 <include reference="gvS-6P-8FB"/>
                                 <include reference="sjN-BL-Rha"/>
                                 <include reference="z7M-Eu-d5m"/>
-                                <include reference="EjK-ZH-61L"/>
+                                <include reference="BPx-1g-6D7"/>
+                                <include reference="NJh-Rt-X8J"/>
                             </mask>
                         </variation>
                     </view>
