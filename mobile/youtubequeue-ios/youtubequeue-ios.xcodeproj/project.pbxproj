@@ -20,6 +20,8 @@
 		4CBD56D81C137AF1000D25E5 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD56D71C137AF1000D25E5 /* Video.swift */; };
 		4CBD56DD1C14C5C8000D25E5 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD56DC1C14C5C8000D25E5 /* VideoCell.swift */; };
 		4CBD56E11C14CF45000D25E5 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBD56E01C14CF45000D25E5 /* VideoCell.xib */; };
+		4CBD56E31C151CD5000D25E5 /* GoogleCastResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4CBD56E21C151CD4000D25E5 /* GoogleCastResources.bundle */; };
+		4CBD56E61C151D1E000D25E5 /* imgres.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CBD56E51C151D1E000D25E5 /* imgres.png */; };
 		4CBED3D81C1279ED00269F23 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBED3D71C1279ED00269F23 /* Accelerate.framework */; };
 		4CBED3DA1C1279FA00269F23 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBED3D91C1279FA00269F23 /* AudioToolbox.framework */; };
 		4CBED3DC1C127A0200269F23 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBED3DB1C127A0200269F23 /* AVFoundation.framework */; };
@@ -71,6 +73,8 @@
 		4CBD56D71C137AF1000D25E5 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		4CBD56DC1C14C5C8000D25E5 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		4CBD56E01C14CF45000D25E5 /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		4CBD56E21C151CD4000D25E5 /* GoogleCastResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleCastResources.bundle; path = "Pods/google-cast-sdk/GoogleCastSDK-2.10.1-Release/GoogleCast.framework/GoogleCastResources.bundle"; sourceTree = "<group>"; };
+		4CBD56E51C151D1E000D25E5 /* imgres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imgres.png; path = ../../../../../../Desktop/imgres.png; sourceTree = "<group>"; };
 		4CBED3D71C1279ED00269F23 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		4CBED3D91C1279FA00269F23 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4CBED3DB1C127A0200269F23 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -134,6 +138,7 @@
 		3ED7E41BF20EFFCC9361E646 /* youtubequeue-ios */ = {
 			isa = PBXGroup;
 			children = (
+				4CBD56E41C151D19000D25E5 /* assets */,
 				4CBED3EC1C127D8100269F23 /* YoutubeQueue-Bridging-Header.h */,
 				3ED7ED3E99AA04583CE34E3E /* Info.plist */,
 				3ED7E0AF15875F7EE311E7F1 /* Assets.xcassets */,
@@ -162,6 +167,7 @@
 		3ED7E6513BEE2472E9917100 = {
 			isa = PBXGroup;
 			children = (
+				4CBD56E21C151CD4000D25E5 /* GoogleCastResources.bundle */,
 				3ED7EF98BB5DF7CA941FDD8C /* Products */,
 				3ED7E41BF20EFFCC9361E646 /* youtubequeue-ios */,
 				3ED7E370AF290E9938D03682 /* youtubequeue-iosTests */,
@@ -180,6 +186,14 @@
 				3ED7EBC9B264463ABE5A15A7 /* youtubequeue-iosUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4CBD56E41C151D19000D25E5 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				4CBD56E51C151D1E000D25E5 /* imgres.png */,
+			);
+			name = assets;
 			sourceTree = "<group>";
 		};
 		87717A7C220957C7BA87EC71 /* Frameworks */ = {
@@ -277,6 +291,11 @@
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = michaelsimard;
+				TargetAttributes = {
+					3ED7EF151D41879270D922B3 = {
+						DevelopmentTeam = SE229W5FUT;
+					};
+				};
 			};
 			buildConfigurationList = 3ED7EB524452B99D1205D63A /* Build configuration list for PBXProject "youtubequeue-ios" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -316,8 +335,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CBD56E61C151D1E000D25E5 /* imgres.png in Resources */,
 				4CBD56E11C14CF45000D25E5 /* VideoCell.xib in Resources */,
 				3ED7E36D81072BE3C7148020 /* Assets.xcassets in Resources */,
+				4CBD56E31C151CD5000D25E5 /* GoogleCastResources.bundle in Resources */,
 				3ED7EEA94D08501183896F1F /* LaunchScreen.storyboard in Resources */,
 				3ED7E4128D91CA6E4BCA35B6 /* Main.storyboard in Resources */,
 				3ED7E53BBD0341B794C9500B /* Podfile in Resources */,
@@ -456,6 +477,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lazel, Inc. (SE229W5FUT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -478,6 +500,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -489,6 +512,8 @@
 			baseConfigurationReference = D2BF9FF32408C60EB713284E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/google-cast-sdk/GoogleCastSDK-2.10.1-Release",
@@ -497,7 +522,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelsimard.youtubequeue-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "YoutubeQueue-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -518,6 +545,8 @@
 			baseConfigurationReference = 5AA8FFE310607C04E23485AF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/google-cast-sdk/GoogleCastSDK-2.10.1-Release",
@@ -526,7 +555,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelsimard.youtubequeue-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "YoutubeQueue-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -598,6 +629,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
