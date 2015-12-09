@@ -59,8 +59,8 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
         refreshControl .addTarget(self, action: Selector("refreshFromScroll:"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView .addSubview(refreshControl)
         self.tableView .sendSubviewToBack(refreshControl);
-        self .refreshListData()
-        //      self.tableView.registerClass(VideoCell.self, forCellReuseIdentifier: "cell")
+        self .refreshListData { (success) -> Void in
+        }
         
     }
     
@@ -115,7 +115,6 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
     
     
     func cast(video:Video) {
-        
         print("Cast Video")
         
         // Show alert if not connected.
@@ -134,37 +133,31 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
             }
             return
         }
-        
-        // [START media-metadata]
-        // Define Media Metadata.
+  
         let metadata = GCKMediaMetadata()
         metadata.setString(video.title, forKey: kGCKMetadataKeyTitle)
-        //  metadata.setString("Insert useful meta data here " +
-        //   "The quick brown fox jumped over the lazy dog",
-        //   forKey: kGCKMetadataKeySubtitle)
-        
-        let url = NSURL(string: "https://commondatastorage.googleapis.com/gtv-videos-bucket/" +
-            "sample/images/BigBuckBunny.jpg")
         metadata.addImage(GCKImage(URL: NSURL(string: video.image), width: 480, height: 360))
-        // [END media-metadata]
+
         
-        // [START load-media]
-        // Define Media Information.
-        let mediaInformation = GCKMediaInformation(
-            contentID:
-            video.videoUrl,
-            streamType: GCKMediaStreamType.None,
-            contentType: "video/mp4",
-            metadata: metadata,
-            streamDuration: 0,
-            mediaTracks: [],
-            textTrackStyle: nil,
-            customData: nil
-        )
+        if let url = video.videoUrl {
+         
+            let mediaInformation = GCKMediaInformation(
+                contentID:url,
+                streamType: GCKMediaStreamType.None,
+                contentType: "video/mp4",
+                metadata: metadata,
+                streamDuration: 0,
+                mediaTracks: [],
+                textTrackStyle: nil,
+                customData: nil
+            )
+            
+            if let myMediaControlChannel = mediaControlChannel {
+                myMediaControlChannel.loadMedia(mediaInformation, autoplay: true)
+            }
+        }
         
-        // Cast the media
-        mediaControlChannel!.loadMedia(mediaInformation, autoplay: true)
-        // [END load-media
+     
     }
     
     
@@ -203,15 +196,17 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
         };
     }
     
-    func refreshListData(){
+    func refreshListData(completionHandler: (success:Bool) -> Void){
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             SwiftSpinner.show("Getting queue")
         }
         networkManager .getQueue() {
             (videoList: Array<Video>) in
             self.youTubeVideoList = videoList;
+            print ("video list updated")
             self.updateQueueTable()
-            
+            completionHandler(success: true);
+
             
         };
     }
@@ -236,7 +231,9 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
                 Int64(0.3 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue(), { () -> Void in
                 self.networkManager .addYoutubeLink(urlTextField.text!, roomId: "0iKjUBImIL", completionHandler: { (success) -> Void in
-                    self .refreshListData()
+                    self .refreshListData({ (success) -> Void in
+                        
+                    })
                 })
             })
         }
@@ -250,22 +247,52 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
     }
     
     func playNextVideo(){
+        if youTubeVideoList.count>0 {
         currentVideo = youTubeVideoList[0]
         if let video = currentVideo{
+            print ("playNextVideo " + video.title)
             self.cast(video)
         }
+    }
     }
     
     func videoFinishedPlaying(){
         
         if let video = currentVideo{
             networkManager.remove(video.id, roomId: "0iKjUBImIL", completionHandler: { (success) -> Void in
-                self .refreshListData()
-                self .playNextVideo()
+                self .refreshListData({ (success) -> Void in
+                    self .playNextVideo()
+                })
             })
             
         }
     }
+    
+    @IBAction func addRandomVideos(sender: AnyObject) {
+        
+        self.networkManager .addYoutubeLink("https://www.youtube.com/watch?v=UUlLGnTAHeM", roomId: "0iKjUBImIL", completionHandler: { (success) -> Void in
+            
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW,
+                Int64(5 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue(), { () -> Void in
+                self.networkManager .addYoutubeLink("https://www.youtube.com/watch?v=3LUw41dk4JY", roomId: "0iKjUBImIL", completionHandler: { (success) -> Void in
+                    self.refreshListData({ (success) -> Void in
+                        
+                    })
+                    
+                })
+
+            
+            })
+            
+            
+            
+            
+        })
+
+        
+    }
+    
 }
 
 
@@ -341,14 +368,16 @@ extension ViewController {
 extension ViewController {
     func downVoteButtonPressed(video:Video) {
         self.networkManager .downvote(video.id, roomId: "0iKjUBImIL") { (success) -> Void in
-            self .refreshListData()
+            self .refreshListData({ (success) -> Void in
+            })
         }
         
     }
     
     func upVoteButtonPressed(video:Video) {
         self.networkManager .upvote(video.id, roomId: "0iKjUBImIL") { (success) -> Void in
-            self .refreshListData()
+            self .refreshListData({ (success) -> Void in
+            })
         }
     }
     
@@ -385,9 +414,7 @@ extension ViewController{
                     print ("idle reason interuppted")
                 case GCKMediaPlayerIdleReason.Error:
                     print ("idle reason error")
-                    
                 }
-                
             case GCKMediaPlayerState.Paused:
                 print ("player state: paused")
             }
