@@ -32,7 +32,7 @@ class NSNetworkManager: NSObject {
                                 site: results["site"].string!,
                                 siteId: results["siteId"].string!,
                                 title: results["title"].string!,
-                                videoUrl: results["videoUrl"].string!,
+                                videoUrl: results["videoUrl"].string,
                                 votes: results["votes"].int!
                         )
                         videoListArray.append(video)
@@ -91,7 +91,18 @@ class NSNetworkManager: NSObject {
         task.resume()
     }
     
-    
+    func remove (linkId: String, roomId: String, completionHandler: (success:Bool) -> Void) {
+        
+        let url = NSURL(string: baseUrl + "/rooms/" + roomId + "/links/" + linkId + "/remove")
+        print(url)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {
+            (data, response, error) in
+            completionHandler(success: true);
+        }
+        task.resume()
+        
+    }
     
      func createpostStringWithDictionary(params:Dictionary<String,String>)->String{
         var postString:String = String()
@@ -102,7 +113,7 @@ class NSNetworkManager: NSObject {
 
             let nsValue = cfvalue as NSString
             let swiftValue:String = nsValue as String
-            postString += key + "=" + value 
+            postString += key + "=" + swiftValue
             
         }
         return postString
