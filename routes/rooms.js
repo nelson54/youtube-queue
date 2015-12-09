@@ -81,7 +81,9 @@ router.post('/:id/name', function(req, res) {
 
 router.post('/:id/links', function(req, res) {
     var roomId = req.params.id;
+    console.log(req.param('link'));
     var link = req.param('link');
+    console.log(link);
     var siteId = filterUrlForYoutubeId(link);
     var linkId;
 
@@ -160,6 +162,21 @@ router.get('/:roomId/links/:linkId/upvote', function(req, res) {
 
 router.get('/:id/player', function(req, res) {
     res.render('queue', {room: req.params.id});
+});
+
+router.get('/:roomId/remove', function(req, res) {
+    Room.findOne(req.param('roomId'))
+        .then(function(room){
+            room.remove(
+                function(room) {
+                    res.redirect('/rooms');
+                }
+                ,function(room){
+                    res
+                        .status(500)
+                        .send({ msg: "Failed to delete room"});
+                });
+        });
 });
 
 router.get('/', function(req, res) {
