@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youtubequeue-ios/ViewController.swift"
-            timestampString = "471135371.898998"
+            timestampString = "471313016.241002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "cast(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youtubequeue-ios/ViewController.swift"
-            timestampString = "471135371.898998"
+            timestampString = "471313016.241002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -38,16 +38,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youtubequeue-ios/ViewController.swift"
-            timestampString = "471135371.898998"
+            timestampString = "471313296.249349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
-            landmarkName = "deviceManager(_:didFailToConnectToApplicationWithError:)"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
+            landmarkName = "deviceManager(_:didConnectToCastApplication:sessionID:launchedApplication:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youtubequeue-ios/ViewController.swift"
-            timestampString = "471135371.898998"
+            timestampString = "471313296.249349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
+            startingLineNumber = "348"
+            endingLineNumber = "348"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youtubequeue-ios/ViewController.swift"
-            timestampString = "471135371.898998"
+            timestampString = "471313296.249349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youtubequeue-ios/NSNetworkManager.swift"
-            timestampString = "471134442.85114"
+            timestampString = "471313016.241002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "createpostStringWithDictionary(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -198,7 +198,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youtubequeue-ios/NSNetworkManager.swift"
@@ -211,33 +211,33 @@
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "youtubequeue_ios.NSNetworkManager.addYoutubeLink (youtubequeue_ios.NSNetworkManager)(Swift.String, roomId : Swift.String, completionHandler : (success : Swift.Bool) -&gt; ()) -&gt; ()"
                   moduleName = "youtubequeue-ios"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/michael/dev/hackathon/youtube-queue/mobile/youtubequeue-ios/youtubequeue-ios/NSNetworkManager.swift"
-                  timestampString = "471134316.348117"
+                  timestampString = "471143676.298926"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1220">
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "1372">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "youtubequeue_ios.NSNetworkManager.(addYoutubeLink (youtubequeue_ios.NSNetworkManager) -&gt; (Swift.String, roomId : Swift.String, completionHandler : (success : Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "youtubequeue-ios"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/michael/dev/hackathon/youtube-queue/mobile/youtubequeue-ios/youtubequeue-ios/NSNetworkManager.swift"
-                  timestampString = "471134316.348341"
+                  timestampString = "471143676.29913"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
                   offsetFromSymbolStart = "28">
                </Location>
             </Locations>
@@ -246,7 +246,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youtubequeue-ios/NSNetworkManager.swift"
@@ -256,6 +256,54 @@
             startingLineNumber = "89"
             endingLineNumber = "89"
             landmarkName = "addYoutubeLink(_:roomId:completionHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youtubequeue-ios/ViewController.swift"
+            timestampString = "471313296.249349"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
+            landmarkName = "mediaControlChannelDidUpdateStatus(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youtubequeue-ios/ViewController.swift"
+            timestampString = "471313296.249349"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
+            landmarkName = "videoFinishedPlaying()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youtubequeue-ios/ViewController.swift"
+            timestampString = "471313296.249349"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
+            landmarkName = "playNextVideo()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
