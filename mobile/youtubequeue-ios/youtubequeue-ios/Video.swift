@@ -12,7 +12,7 @@ struct Video {
     var site: String
     var siteId: String
     var title:String
-    var videoUrl:String
+    var videoUrl:String?
     var votes:NSInteger
     
 
