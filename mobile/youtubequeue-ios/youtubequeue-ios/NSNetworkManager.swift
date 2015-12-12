@@ -13,8 +13,8 @@ class NSNetworkManager: NSObject {
     let baseUrl: String = "http://chromecast-queue.herokuapp.com"
 
 
-    func getQueue(completionHandler: (videoList:Array<Video>) -> Void) {
-        let url = NSURL(string: baseUrl + "/rooms/0iKjUBImIL/links")
+    func getQueue(roomId:String, completionHandler: (videoList:Array<Video>) -> Void) {
+        let url = NSURL(string: baseUrl + "/rooms/" + roomId + "/links")
         print(url)
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {
             (data, response, error) in
