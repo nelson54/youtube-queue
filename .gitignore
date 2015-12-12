@@ -4,7 +4,7 @@ node_modules/*
 # Mac OS X
 *.DS_Store
 
-./mobile/youtubequeue-ios/.idea/*
+mobile/youtubequeue-ios/.idea/*
 
 # Xcode
 *.pbxuser
