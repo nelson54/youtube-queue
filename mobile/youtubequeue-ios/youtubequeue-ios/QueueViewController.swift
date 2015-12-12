@@ -64,6 +64,9 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
         self.tableView .sendSubviewToBack(refreshControl);
         self .refreshListData { (success) -> Void in
         }
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        }
         
     }
     
@@ -114,6 +117,11 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
             selectedDevice = nil;
             deviceManager!.disconnect()
         }
+    }
+    
+    override func castTapped(sender: AnyObject) {
+        
+        btnCastTapped(sender)
     }
     
     override func tappedQuickAdd(){
