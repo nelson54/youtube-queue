@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LobbyViewController: UIViewController {
+class LobbyViewController: CenterViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
