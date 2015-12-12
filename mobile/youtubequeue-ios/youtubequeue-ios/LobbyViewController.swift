@@ -27,8 +27,9 @@ class LobbyViewController: CenterViewController {
     
     @IBAction func joinRoomPressed(sender: AnyObject) {
  
-        self .joinRoom(enterCodeTextField.text!)
-        
+        if (enterCodeTextField.text != ""){
+            self .joinRoom(enterCodeTextField.text!)
+        }
     }
     @IBAction func createRoomPressed(sender: AnyObject) {
         let alert = UIAlertController(title: "Sorry", message: "Creating rooms is not yet enabled. You can join Dereks room by opening the menu and clicking Derek.", preferredStyle: UIAlertControllerStyle.Alert)
