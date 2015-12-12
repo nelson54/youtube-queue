@@ -116,6 +116,9 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
         }
     }
     
+    override func tappedQuickAdd(){
+        self.tappedAddButton()
+    }
     
     func cast(video:Video) {
         print("Cast Video")
@@ -492,4 +495,6 @@ extension QueueViewController {
     }
     
 }
+
+
 
