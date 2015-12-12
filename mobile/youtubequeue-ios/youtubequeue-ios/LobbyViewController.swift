@@ -1,3 +1,5 @@
+
+
 //
 //  LobbyViewController.swift
 //  youtubequeue-ios
@@ -10,6 +12,8 @@ import UIKit
 
 class LobbyViewController: CenterViewController {
 
+    @IBOutlet weak var enterCodeTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +25,16 @@ class LobbyViewController: CenterViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func joinRoomPressed(sender: AnyObject) {
+        let alert = UIAlertController(title: "Sorry", message: "Joing rooms is not yet enabled.  You can join Dereks room by opening the menu and clicking Derek.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    @IBAction func createRoomPressed(sender: AnyObject) {
+        let alert = UIAlertController(title: "Sorry", message: "Creating rooms is not yet enabled. You can join Dereks room by opening the menu and clicking Derek.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
@@ -32,4 +46,16 @@ class LobbyViewController: CenterViewController {
     }
     */
 
+}
+
+extension LobbyViewController: UITextFieldDelegate{
+ 
+    
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+   
+        enterCodeTextField.resignFirstResponder()
+        return true;
+    }
+   
 }
