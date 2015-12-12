@@ -11,9 +11,11 @@ import UIKit
 import SwiftSpinner
 
 
-class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManagerDelegate,
+
+class QueueViewController: CenterViewController, GCKDeviceScannerListener, GCKDeviceManagerDelegate,
 GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, VideoCellDelegate {
     
+
     @IBOutlet weak var castButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     private let kCancelTitle = "Cancel"
@@ -27,6 +29,7 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
     private var networkManager: NSNetworkManager
     private var youTubeVideoList: Array<Video>
     private var currentVideo:Video?
+    var roomId:String?
     
     private lazy var kReceiverAppID: String = {
         // You can add your own app id here that you get by registering with the
@@ -119,18 +122,11 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
         
         // Show alert if not connected.
         if (deviceManager?.connectionState != GCKConnectionState.Connected) {
-            if #available(iOS 8.0, *) {
                 let alert = UIAlertController(title: "Not Connected",
                     message: "Please connect to Cast device",
                     preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
-            } else {
-                let alert = UIAlertView.init(title: "Not Connected",
-                    message: "Please connect to Cast device", delegate: nil, cancelButtonTitle: "OK",
-                    otherButtonTitles: "")
-                alert.show()
-            }
             return
         }
   
@@ -188,7 +184,7 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
     
     
     func refreshFromScroll(refreshControl: UIRefreshControl) {
-        networkManager .getQueue() {
+        networkManager .getQueue(roomId!) {
             (videoList: Array<Video>) in
             self.youTubeVideoList = videoList;
             self.updateQueueTable()
@@ -200,7 +196,7 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             SwiftSpinner.show("Getting queue")
         }
-        networkManager .getQueue() {
+        networkManager .getQueue(roomId!) {
             (videoList: Array<Video>) in
             self.youTubeVideoList = videoList;
             print ("video list updated")
@@ -221,7 +217,7 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
     }
     
     
-    @IBAction func tappedAddButton(sender: AnyObject) {
+    @IBAction func tappedAddButton() {
         
         let alertController:UIAlertController = UIAlertController(title: "URL", message: "enter youtube url", preferredStyle: UIAlertControllerStyle.Alert)
         
@@ -230,7 +226,7 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
             let delayTime = dispatch_time(DISPATCH_TIME_NOW,
                 Int64(0.3 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue(), { () -> Void in
-                self.networkManager .addYoutubeLink(urlTextField.text!, roomId: "0iKjUBImIL", completionHandler: { (success) -> Void in
+                self.networkManager .addYoutubeLink(urlTextField.text!, roomId: self.roomId!, completionHandler: { (success) -> Void in
                     self .refreshListData({ (success) -> Void in
                         
                     })
@@ -259,7 +255,7 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
     func videoFinishedPlaying(){
         
         if let video = currentVideo{
-            networkManager.remove(video.id, roomId: "0iKjUBImIL", completionHandler: { (success) -> Void in
+            networkManager.remove(video.id, roomId: roomId!, completionHandler: { (success) -> Void in
                 self .refreshListData({ (success) -> Void in
                     self .playNextVideo()
                 })
@@ -268,14 +264,17 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
         }
     }
     
+    
+  
+    
     @IBAction func addRandomVideos(sender: AnyObject) {
         
-        self.networkManager .addYoutubeLink("https://www.youtube.com/watch?v=UUlLGnTAHeM", roomId: "0iKjUBImIL", completionHandler: { (success) -> Void in
+        self.networkManager .addYoutubeLink("https://www.youtube.com/watch?v=UUlLGnTAHeM", roomId: roomId!, completionHandler: { (success) -> Void in
             
             let delayTime = dispatch_time(DISPATCH_TIME_NOW,
                 Int64(5 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue(), { () -> Void in
-                self.networkManager .addYoutubeLink("https://www.youtube.com/watch?v=3LUw41dk4JY", roomId: "0iKjUBImIL", completionHandler: { (success) -> Void in
+                self.networkManager .addYoutubeLink("https://www.youtube.com/watch?v=3LUw41dk4JY", roomId: self.roomId!, completionHandler: { (success) -> Void in
                     self.refreshListData({ (success) -> Void in
                         
                     })
@@ -284,10 +283,7 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
 
             
             })
-            
-            
-            
-            
+        
         })
 
         
@@ -298,7 +294,7 @@ GCKMediaControlChannelDelegate, UITableViewDelegate, UITableViewDataSource, Vide
 
 // MARK: GCKDeiceScannerListener
 
-extension ViewController {
+extension QueueViewController {
     
     func deviceDidComeOnline(device: GCKDevice!) {
         print("Device found: \(device.friendlyName)")
@@ -310,7 +306,7 @@ extension ViewController {
 
 
 // MARK: UITableViewDelegate
-extension ViewController {
+extension QueueViewController {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let selectedVideo = youTubeVideoList[indexPath.row] as Video
@@ -327,7 +323,7 @@ extension ViewController {
 
 // MARK: UITableViewDatasource
 
-extension ViewController {
+extension QueueViewController {
     
     func tableView(tableView: UITableView,
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -365,9 +361,9 @@ extension ViewController {
 
 // MARK: VideoCellDelegate
 
-extension ViewController {
+extension QueueViewController {
     func downVoteButtonPressed(video:Video) {
-        self.networkManager .downvote(video.id, roomId: "0iKjUBImIL") { (success) -> Void in
+        self.networkManager .downvote(video.id, roomId: roomId!) { (success) -> Void in
             self .refreshListData({ (success) -> Void in
             })
         }
@@ -375,7 +371,7 @@ extension ViewController {
     }
     
     func upVoteButtonPressed(video:Video) {
-        self.networkManager .upvote(video.id, roomId: "0iKjUBImIL") { (success) -> Void in
+        self.networkManager .upvote(video.id, roomId: roomId!) { (success) -> Void in
             self .refreshListData({ (success) -> Void in
             })
         }
@@ -383,10 +379,12 @@ extension ViewController {
     
 }
 
+
+
 // [START media-control-channel]
 //MARK: GCKMediaControlChannelDelegate
 // [START_EXCLUDE silent]
-extension ViewController{
+extension QueueViewController{
     
     func mediaControlChannelDidUpdateStatus(mediaControlChannel: GCKMediaControlChannel!) {
         
@@ -431,7 +429,7 @@ extension ViewController{
 // MARK: GCKDeviceManagerDelegate
 // [START_EXCLUDE silent]
 
-extension ViewController {
+extension QueueViewController {
     
     func deviceManagerDidConnect(deviceManager: GCKDeviceManager!) {
         print("Connected.")
