@@ -113,45 +113,71 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcc-kx-EGe">
                                 <rect key="frame" x="256" y="509" width="89" height="30"/>
                                 <state key="normal" title="Create Room"/>
+                                <connections>
+                                    <action selector="createRoomPressed:" destination="jrT-Lw-cAG" eventType="touchUpInside" id="zQc-94-pEN"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Room Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuA-3H-9wU">
-                                <rect key="frame" x="233" y="107" width="135" height="21"/>
+                                <rect key="frame" x="233" y="107" width="134.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="&lt;Code Here&gt;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-GD-F2w">
-                                <rect key="frame" x="187" y="160" width="227" height="56.5"/>
-                                <color key="backgroundColor" red="0.16166966623036649" green="0.13928655531199347" blue="0.12150251472027743" alpha="1" colorSpace="calibratedRGB"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D6V-3e-tuB">
+                                <rect key="frame" x="211" y="176" width="178" height="60"/>
+                                <color key="backgroundColor" red="0.24398723821989532" green="0.2102072871438434" blue="0.1833681215196597" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56.5" id="1sc-We-DmV"/>
-                                    <constraint firstAttribute="width" constant="227" id="h4w-kg-Jfw"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Xdd-JS-3JN"/>
+                                    <constraint firstAttribute="width" constant="178" id="eoS-zZ-ItP"/>
+                                    <constraint firstAttribute="height" constant="60" id="mTt-Wx-rF1"/>
                                 </constraints>
-                                <color key="textColor" red="0.95225543063873874" green="1" blue="0.5590476842200125" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.95225543059999995" green="1" blue="0.55904768419999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Xdd-JS-3JN"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="jrT-Lw-cAG" id="ZN5-L1-g7Q"/>
+                                </connections>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBO-Q6-sBI">
-                                <rect key="frame" x="441" y="160" width="54" height="57"/>
+                                <rect key="frame" x="419" y="178" width="54" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="54" id="3uM-uq-q9R"/>
                                     <constraint firstAttribute="height" constant="57" id="u89-xn-CpV"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="arrow-25-512.png"/>
+                                <connections>
+                                    <action selector="joinRoomPressed:" destination="jrT-Lw-cAG" eventType="touchUpInside" id="iIj-Tm-X8o"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.083237892669999994" green="0.072236431059999995" blue="0.062443187810000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mcc-kx-EGe" firstAttribute="centerX" secondItem="lcf-fF-2uq" secondAttribute="centerX" id="1xW-01-fVm"/>
                             <constraint firstItem="QuA-3H-9wU" firstAttribute="centerX" secondItem="lcf-fF-2uq" secondAttribute="centerX" id="5ap-Ta-wQL"/>
-                            <constraint firstItem="pBO-Q6-sBI" firstAttribute="leading" secondItem="5aV-GD-F2w" secondAttribute="trailing" constant="27" id="5x7-6O-KDO"/>
+                            <constraint firstItem="pBO-Q6-sBI" firstAttribute="leading" secondItem="D6V-3e-tuB" secondAttribute="trailing" constant="30" id="AqQ-cn-sCs"/>
+                            <constraint firstItem="D6V-3e-tuB" firstAttribute="top" secondItem="QuA-3H-9wU" secondAttribute="bottom" constant="49" id="Ee8-Lk-1fg"/>
+                            <constraint firstItem="pBO-Q6-sBI" firstAttribute="centerY" secondItem="D6V-3e-tuB" secondAttribute="centerY" id="GEf-ON-eic"/>
                             <constraint firstItem="QuA-3H-9wU" firstAttribute="top" secondItem="crv-WD-sDD" secondAttribute="bottom" constant="87" id="R0R-JR-mLC"/>
-                            <constraint firstItem="5aV-GD-F2w" firstAttribute="top" secondItem="QuA-3H-9wU" secondAttribute="bottom" constant="32" id="Xgn-U5-zJW"/>
                             <constraint firstItem="pBO-Q6-sBI" firstAttribute="top" secondItem="QuA-3H-9wU" secondAttribute="bottom" constant="32" id="dw0-Gh-gRq"/>
-                            <constraint firstItem="5aV-GD-F2w" firstAttribute="centerX" secondItem="lcf-fF-2uq" secondAttribute="centerX" constant="0.5" id="jGa-iK-GMw"/>
+                            <constraint firstItem="D6V-3e-tuB" firstAttribute="centerX" secondItem="lcf-fF-2uq" secondAttribute="centerX" id="nXq-8l-ftq"/>
+                            <constraint firstItem="pBO-Q6-sBI" firstAttribute="leading" secondItem="D6V-3e-tuB" secondAttribute="trailing" constant="15" id="nj3-hY-duc"/>
                             <constraint firstItem="7gg-Aq-E7e" firstAttribute="top" secondItem="mcc-kx-EGe" secondAttribute="bottom" constant="61" id="nzY-CA-uqI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dw0-Gh-gRq"/>
+                                <exclude reference="nj3-hY-duc"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="enterCodeTextField" destination="D6V-3e-tuB" id="lEC-wm-dqX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUp-Pa-psJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
