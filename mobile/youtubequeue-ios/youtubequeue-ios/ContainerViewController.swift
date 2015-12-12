@@ -92,10 +92,9 @@ extension ContainerViewController: CenterViewControllerDelegate {
     }
     
     func addChildSidePanelController(leftDrawViewController: LeftDrawerViewController) {
-        leftDrawViewController.delegate = centerViewController
-        
+        print (centerNavigationController?.viewControllers.count)
+        leftDrawViewController.delegate = centerNavigationController?.viewControllers.last as! CenterViewController!
         view.insertSubview(leftDrawViewController.view, atIndex: 0)
-        
         addChildViewController(leftDrawViewController)
         leftDrawViewController.didMoveToParentViewController(self)
     }
