@@ -17,6 +17,7 @@
 		3ED7EEF64CCA92A456D40056 /* youtubequeue_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7E71824F560791DCE0D91 /* youtubequeue_iosUITests.swift */; };
 		4C04D7601C1B97ED008547AF /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C04D75F1C1B97ED008547AF /* LobbyViewController.swift */; };
 		4C04D7641C1B9AAD008547AF /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C04D7631C1B9AAD008547AF /* CenterViewController.swift */; };
+		4C222EEC1C1BBCCE00F394CD /* arrow-25-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C222EEB1C1BBCCE00F394CD /* arrow-25-512.png */; };
 		4CBD56D41C1378C9000D25E5 /* NSNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD56D31C1378C9000D25E5 /* NSNetworkManager.swift */; };
 		4CBD56D61C137AE2000D25E5 /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD56D51C137AE2000D25E5 /* VideoList.swift */; };
 		4CBD56D81C137AF1000D25E5 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD56D71C137AF1000D25E5 /* Video.swift */; };
@@ -75,6 +76,7 @@
 		3ED7EF16F8FFDC97588EF8E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C04D75F1C1B97ED008547AF /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		4C04D7631C1B9AAD008547AF /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
+		4C222EEB1C1BBCCE00F394CD /* arrow-25-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-25-512.png"; sourceTree = "<group>"; };
 		4CBD56D31C1378C9000D25E5 /* NSNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNetworkManager.swift; sourceTree = "<group>"; };
 		4CBD56D51C137AE2000D25E5 /* VideoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
 		4CBD56D71C137AF1000D25E5 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		4CBD56E41C151D19000D25E5 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				4C222EEB1C1BBCCE00F394CD /* arrow-25-512.png */,
 				4CCFF7611C18DED3000168F8 /* hamburger.png */,
 				4CBD56E51C151D1E000D25E5 /* imgres.png */,
 			);
@@ -355,6 +358,7 @@
 				3ED7E36D81072BE3C7148020 /* Assets.xcassets in Resources */,
 				4CBD56E31C151CD5000D25E5 /* GoogleCastResources.bundle in Resources */,
 				3ED7EEA94D08501183896F1F /* LaunchScreen.storyboard in Resources */,
+				4C222EEC1C1BBCCE00F394CD /* arrow-25-512.png in Resources */,
 				4CCFF7621C18DED3000168F8 /* hamburger.png in Resources */,
 				3ED7E4128D91CA6E4BCA35B6 /* Main.storyboard in Resources */,
 				3ED7E53BBD0341B794C9500B /* Podfile in Resources */,

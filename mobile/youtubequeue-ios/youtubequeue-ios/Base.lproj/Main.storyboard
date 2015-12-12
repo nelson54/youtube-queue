@@ -110,62 +110,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6N3-ns-WvI">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcc-kx-EGe">
+                                <rect key="frame" x="256" y="509" width="89" height="30"/>
                                 <state key="normal" title="Create Room"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="156" y="731" width="89" height="30"/>
-                                </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8t-Te-sYf">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Join Room"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="173" y="284" width="72" height="30"/>
-                                </variation>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Room Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dm-il-F0E">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Room Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuA-3H-9wU">
+                                <rect key="frame" x="233" y="107" width="135" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="146" y="127" width="135" height="21"/>
-                                </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="_ _ _ _ _ _ _" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EKl-34-cWL">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.01026766514" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="44"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="&lt;Code Here&gt;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-GD-F2w">
+                                <rect key="frame" x="187" y="160" width="227" height="56.5"/>
+                                <color key="backgroundColor" red="0.16166966623036649" green="0.13928655531199347" blue="0.12150251472027743" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56.5" id="1sc-We-DmV"/>
+                                    <constraint firstAttribute="width" constant="227" id="h4w-kg-Jfw"/>
+                                </constraints>
+                                <color key="textColor" red="0.95225543063873874" green="1" blue="0.5590476842200125" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="76" y="174" width="267" height="71"/>
-                                </variation>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBO-Q6-sBI">
+                                <rect key="frame" x="441" y="160" width="54" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="3uM-uq-q9R"/>
+                                    <constraint firstAttribute="height" constant="57" id="u89-xn-CpV"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="arrow-25-512.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.083237892669999994" green="0.072236431059999995" blue="0.062443187810000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="6N3-ns-WvI"/>
-                                <exclude reference="G8t-Te-sYf"/>
-                                <exclude reference="4dm-il-F0E"/>
-                                <exclude reference="EKl-34-cWL"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="6N3-ns-WvI"/>
-                                <include reference="G8t-Te-sYf"/>
-                                <include reference="4dm-il-F0E"/>
-                                <include reference="EKl-34-cWL"/>
-                            </mask>
-                        </variation>
+                        <constraints>
+                            <constraint firstItem="mcc-kx-EGe" firstAttribute="centerX" secondItem="lcf-fF-2uq" secondAttribute="centerX" id="1xW-01-fVm"/>
+                            <constraint firstItem="QuA-3H-9wU" firstAttribute="centerX" secondItem="lcf-fF-2uq" secondAttribute="centerX" id="5ap-Ta-wQL"/>
+                            <constraint firstItem="pBO-Q6-sBI" firstAttribute="leading" secondItem="5aV-GD-F2w" secondAttribute="trailing" constant="27" id="5x7-6O-KDO"/>
+                            <constraint firstItem="QuA-3H-9wU" firstAttribute="top" secondItem="crv-WD-sDD" secondAttribute="bottom" constant="87" id="R0R-JR-mLC"/>
+                            <constraint firstItem="5aV-GD-F2w" firstAttribute="top" secondItem="QuA-3H-9wU" secondAttribute="bottom" constant="32" id="Xgn-U5-zJW"/>
+                            <constraint firstItem="pBO-Q6-sBI" firstAttribute="top" secondItem="QuA-3H-9wU" secondAttribute="bottom" constant="32" id="dw0-Gh-gRq"/>
+                            <constraint firstItem="5aV-GD-F2w" firstAttribute="centerX" secondItem="lcf-fF-2uq" secondAttribute="centerX" constant="0.5" id="jGa-iK-GMw"/>
+                            <constraint firstItem="7gg-Aq-E7e" firstAttribute="top" secondItem="mcc-kx-EGe" secondAttribute="bottom" constant="61" id="nzY-CA-uqI"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUp-Pa-psJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1831.5" y="177"/>
+            <point key="canvasLocation" x="1924" y="199"/>
         </scene>
         <!--Left Drawer View Controller-->
         <scene sceneID="AgB-ZT-Y2B">
@@ -238,4 +228,7 @@
             <point key="canvasLocation" x="225" y="180.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow-25-512.png" width="512" height="512"/>
+    </resources>
 </document>
