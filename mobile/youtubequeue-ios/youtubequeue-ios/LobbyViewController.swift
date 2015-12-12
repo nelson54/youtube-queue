@@ -26,9 +26,9 @@ class LobbyViewController: CenterViewController {
     }
     
     @IBAction func joinRoomPressed(sender: AnyObject) {
-        let alert = UIAlertController(title: "Sorry", message: "Joing rooms is not yet enabled.  You can join Dereks room by opening the menu and clicking Derek.", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+ 
+        self .joinRoom(enterCodeTextField.text!)
+        
     }
     @IBAction func createRoomPressed(sender: AnyObject) {
         let alert = UIAlertController(title: "Sorry", message: "Creating rooms is not yet enabled. You can join Dereks room by opening the menu and clicking Derek.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -49,11 +49,8 @@ class LobbyViewController: CenterViewController {
 }
 
 extension LobbyViewController: UITextFieldDelegate{
- 
-    
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-   
         enterCodeTextField.resignFirstResponder()
         return true;
     }
