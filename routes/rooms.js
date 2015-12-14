@@ -51,6 +51,17 @@ router.get('/add', function(req, res) {
     );
 });
 
+router.post('/add', function(req, res) {
+    var room = Room.create();
+    room.save(
+        function(room){
+            res.send({roomId: room.id})
+        },function(room, error){
+            res.send(error);
+        }
+    );
+});
+
 router.get('/:id/', function(req, res) {
     Room.findOne(req.params.id)
         .then(function(room){
