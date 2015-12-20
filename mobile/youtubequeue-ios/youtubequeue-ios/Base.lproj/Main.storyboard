@@ -112,7 +112,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcc-kx-EGe">
                                 <rect key="frame" x="256" y="509" width="89" height="30"/>
-                                <state key="normal" title="Create Room"/>
+                                <state key="normal" title="Create Room">
+                                    <color key="titleColor" red="1" green="0.15770537013376029" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="createRoomPressed:" destination="jrT-Lw-cAG" eventType="touchUpInside" id="zQc-94-pEN"/>
                                 </connections>
@@ -155,7 +157,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.083237892669999994" green="0.072236431059999995" blue="0.062443187810000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mcc-kx-EGe" firstAttribute="centerX" secondItem="lcf-fF-2uq" secondAttribute="centerX" id="1xW-01-fVm"/>
                             <constraint firstItem="QuA-3H-9wU" firstAttribute="centerX" secondItem="lcf-fF-2uq" secondAttribute="centerX" id="5ap-Ta-wQL"/>
