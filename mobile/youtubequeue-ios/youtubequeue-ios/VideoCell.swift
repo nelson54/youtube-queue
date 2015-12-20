@@ -9,8 +9,9 @@
 import UIKit
 
 protocol VideoCellDelegate {
-    func downVoteButtonPressed(video:Video)
-    func upVoteButtonPressed(video:Video);
+    func downVoteButtonPressed(video: Video)
+
+    func upVoteButtonPressed(video: Video);
 }
 
 
@@ -20,23 +21,25 @@ class VideoCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var votesLabel: UILabel!
     @IBOutlet weak var title: UILabel!
-    var video:Video?
+    var video: Video?
 
     @IBAction func downVoteButtonPressed(sender: AnyObject) {
-        print ("Downvote Button Pressed")
-        
-        
+        print("Downvote Button Pressed")
+
+
         if let delegate = self.delegate {
-            delegate.downVoteButtonPressed(video!)        }
+            delegate.downVoteButtonPressed(video!)
+        }
     }
+
     @IBAction func upVoteButtonPressed(sender: AnyObject) {
-        print ("Upvote Button Pressed")
-        
+        print("Upvote Button Pressed")
+
         if let delegate = self.delegate {
             delegate.upVoteButtonPressed(video!)
         }
 
     }
-    
-    
+
+
 }
