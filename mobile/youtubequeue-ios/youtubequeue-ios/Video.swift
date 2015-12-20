@@ -11,10 +11,10 @@ struct Video {
     var image: String
     var site: String
     var siteId: String
-    var title:String
-    var videoUrl:String?
-    var votes:NSInteger
-    
+    var title: String
+    var videoUrl: String?
+    var votes: NSInteger
+
 
 }
 
