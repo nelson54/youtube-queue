@@ -13,7 +13,7 @@ class NSNetworkManager: NSObject {
     let baseUrl: String = "http://chromecast-queue.herokuapp.com"
 
 
-    func getQueue(roomId:String, completionHandler: (videoList:Array<Video>) -> Void) {
+    func getQueue(roomId: String, completionHandler: (videoList:Array<Video>) -> Void) {
         let url = NSURL(string: baseUrl + "/rooms/" + roomId + "/links")
         print(url)
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {
@@ -54,8 +54,6 @@ class NSNetworkManager: NSObject {
             completionHandler(success: true);
         }
         task.resume()
-
-
     }
 
 
@@ -73,52 +71,73 @@ class NSNetworkManager: NSObject {
     func addYoutubeLink(link: String, roomId: String, completionHandler: (success:Bool) -> Void) {
         let url = NSURL(string: baseUrl + "/rooms/" + roomId + "/links/")
         print(url)
-        
-        let dictionary:Dictionary<String,String> = Dictionary(dictionaryLiteral: ("link",link))
-        
-        let postString:String = self .createpostStringWithDictionary(dictionary)
 
-        print (postString)
-        let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
-        let postData:NSData = postString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)!
+        let dictionary: Dictionary<String, String> = Dictionary(dictionaryLiteral: ("link", link))
+
+        let postString: String = self .createpostStringWithDictionary(dictionary)
+
+        print(postString)
+        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        let postData: NSData = postString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)!
         request.HTTPBody = postData;
         request.HTTPMethod = "POST";
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request){
+
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             (data, response, error) in
             completionHandler(success: true);
         }
         task.resume()
     }
-    
-    func remove (linkId: String, roomId: String, completionHandler: (success:Bool) -> Void) {
-        
+
+    func remove(linkId: String, roomId: String, completionHandler: (success:Bool) -> Void) {
+
         let url = NSURL(string: baseUrl + "/rooms/" + roomId + "/links/" + linkId + "/remove")
         print(url)
-        
+
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {
             (data, response, error) in
             completionHandler(success: true);
         }
         task.resume()
-        
+
     }
-    
-     func createpostStringWithDictionary(params:Dictionary<String,String>)->String{
-        var postString:String = String()
-        
-        for (key,value) in params {
-            
-            let cfvalue  = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,value,"","!*'();:@&=+$,/?%#[]",CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))
+
+    func createpostStringWithDictionary(params: Dictionary<String, String>) -> String {
+        var postString: String = String()
+
+        for (key, value) in params {
+
+            let cfvalue = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, value, "", "!*'();:@&=+$,/?%#[]", CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))
 
             let nsValue = cfvalue as NSString
-            let swiftValue:String = nsValue as String
+            let swiftValue: String = nsValue as String
             postString += key + "=" + swiftValue
-            
         }
         return postString
     }
- 
+
+    func createRoom(completionHandler: (roomId:String) -> Void) {
+
+        let url = NSURL(string: baseUrl + "/rooms/add")
+
+
+        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST";
+
+
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            (data, response, error) in
+            if let httpRes = response as? NSHTTPURLResponse {
+                let json = JSON(data: data!)
+
+                completionHandler(roomId: json["roomId"].stringValue);
+
+            }
+        }
+        task.resume()
+
+    }
+
 
 }
 
